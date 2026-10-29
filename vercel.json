@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/saud.vcf",
+      "headers": [
+        { "key": "Content-Type", "value": "text/vcard; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"saud.vcf\"" }
+      ]
+    }
+  ]
+}
