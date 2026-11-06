@@ -159,24 +159,48 @@ a{color:inherit;text-decoration:none}
 .visit{display:inline-flex;align-items:center;gap:6px;font:500 12.5px/1 var(--font-mono);color:var(--h);direction:ltr;border-radius:6px}
 .visit svg{width:13px;height:13px}
 
-/* ---------- Managed TikTok accounts ---------- */
-.managed{margin-top:40px}
-.managed-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.managed-head h3{margin:0;font-family:var(--font-display);font-weight:600;font-size:clamp(22px,5vw,27px);line-height:1.2;text-wrap:balance}
-.managed-head p{margin:6px 0 0;color:var(--muted);font-size:14px;line-height:1.6}
-.managed-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
-.acct{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;
-  background:var(--surface);border:1px solid var(--line);transition:border-color .25s,background .25s}
-.acct:hover{border-color:color-mix(in srgb,var(--h) 45%,var(--line));background:var(--surface-2)}
-.acct:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
-.acct-ico{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;color:var(--h);
+/* ---------- Work categories ---------- */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px;list-style:none;margin:0;padding:0}
+.cats li{display:flex}
+.cats .cat{flex:1}
+.cat{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:start;gap:14px;padding:20px 18px;border-radius:22px;
+  background:var(--surface);border:1px solid var(--line);overflow:hidden;transition:border-color .25s,background .25s,transform .25s}
+.cat::after{content:"";position:absolute;inset:auto -30% -60% auto;width:220px;height:220px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--h) 16%,transparent),transparent)}
+.cat:hover{border-color:color-mix(in srgb,var(--h) 50%,var(--line));background:var(--surface-2)}
+.cat:active{transform:scale(.99)}
+.cat:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
+.cat-ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:var(--h);
   background:color-mix(in srgb,var(--h) 14%,transparent);border:1px solid color-mix(in srgb,var(--h) 28%,transparent)}
-.acct-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.acct-text{display:grid;gap:5px;min-width:0}
-.acct-text b{font-family:var(--font-display);font-weight:600;font-size:18px;line-height:1.2}
-.acct-text em{font:500 12.5px/1.2 var(--font-mono);font-style:normal;color:var(--muted);text-align:right;overflow-wrap:anywhere}
-.acct-go{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--h)}
-.acct-go svg{width:13px;height:13px}
+.cat-ico svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cat-body{display:grid;gap:6px;min-width:0}
+.cat-title{font-family:var(--font-display);font-weight:700;font-size:22px;line-height:1.2}
+.cat-sub{font-size:13.5px;line-height:1.6;color:var(--muted)}
+.cat-names{margin-top:6px;font-size:12.5px;line-height:1.7;color:color-mix(in srgb,var(--text) 78%,transparent)}
+.cat-side{display:grid;justify-items:end;gap:18px;position:relative;z-index:1}
+.cat-side b{font:600 26px/1 var(--font-mono);color:var(--h);direction:ltr}
+.cat-side svg{width:20px;height:20px;color:var(--h);transform:scaleX(-1)}
+.cat-side svg path{stroke:currentColor}
+
+/* ---------- Category page ---------- */
+.catpage{padding-block:28px 24px}
+.catpage-inner{max-width:1000px;margin:0 auto}
+.goback{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 14px;border-radius:999px;border:1px solid var(--line);
+  color:var(--text);font-size:14px;transition:border-color .2s}
+.goback:hover{border-color:var(--muted)}
+.goback:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
+.goback svg{width:18px;height:18px}
+.cp-head{margin:26px 0 22px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.cp-crumb{margin:0 0 10px;font:500 11px/1 var(--font-mono);letter-spacing:.2em;color:var(--h);direction:ltr;text-align:right}
+.cp-head h2{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(34px,8vw,52px);line-height:1.05;text-wrap:balance;outline:none}
+.cp-head p{margin:10px 0 0;color:var(--muted);font-size:14.5px;line-height:1.6}
+.cta{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px;border-radius:20px;
+  border:1px dashed color-mix(in srgb,var(--saffron) 45%,var(--line))}
+.cta p{margin:0;font-size:15px;line-height:1.6}
+.cta p span{display:block;color:var(--muted);font-size:13px}
+.cta a{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:14px;background:var(--saffron);color:var(--card-ink);font-weight:600;font-size:14.5px}
+.cta a:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
+.cta a svg{width:19px;height:19px}
 
 /* ---------- Footer ---------- */
 .foot{padding-block:28px 40px}
@@ -186,7 +210,7 @@ a{color:inherit;text-decoration:none}
 
 @media (prefers-reduced-motion:reduce){
   .nfc path,.live::before{animation:none}
-  .wa,.add,.ig,.work,.acct{transition:none}
+  .wa,.add,.ig,.work,.cat,.goback{transition:none}
 }
 </style>
 </head>
@@ -194,6 +218,7 @@ a{color:inherit;text-decoration:none}
 
 <div class="page" dir="rtl" lang="ar">
 
+<div id="home">
   <section class="stage" id="stage" aria-label="بطاقة التعريف">
     <div class="bigtype" id="bigtype" aria-hidden="true">SUD8</div>
     <div class="spot" id="spot" aria-hidden="true"></div>
@@ -226,7 +251,7 @@ a{color:inherit;text-decoration:none}
             <p class="latin">SAUD ALSUBAIE</p>
           </div>
           <p class="f-role">رائد أعمال رقمي، أبني منتجات تقنية للسوق السعودي</p>
-          <ul class="f-tags"><li>مطوّر</li><li>تجارة إلكترونية</li><li>ذكاء اصطناعي</li></ul>
+          <ul class="f-tags"><li>مطوّر</li><li>تجارة إلكترونية</li><li>محتوى وتصميم</li><li>ذكاء اصطناعي</li></ul>
           <div class="foil">
             <svg class="barcode" id="barcode" aria-hidden="true" preserveAspectRatio="none" shape-rendering="crispEdges"></svg>
             <span class="f-num" dir="ltr">053 221 2529</span>
@@ -274,16 +299,66 @@ a{color:inherit;text-decoration:none}
     </div>
   </section>
 
-  <section class="works wrap" aria-labelledby="works-title">
+  <section class="works wrap" id="works" aria-labelledby="works-title">
     <div class="works-inner">
       <div class="works-head">
         <div>
           <h2 id="works-title">أعمالي</h2>
-          <p>منتجات ومشاريع بنيتها من الفكرة إلى الإطلاق</p>
+          <p>اختر القسم وشوف الشغل</p>
         </div>
-        <span class="count"><b>08</b> PROJECTS</span>
+        <span class="count"><b>11</b> WORKS</span>
       </div>
 
+      <ul class="cats">
+        <li>
+          <a class="cat" href="#web" style="--h:#ECB04B">
+            <span class="cat-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M3 9h18M6.5 6.8h.01M9 6.8h.01"/></svg></span>
+            <span class="cat-body">
+              <span class="cat-title">مواقع إلكترونية</span>
+              <span class="cat-sub">متاجر ومنصات بنيتها من الفكرة إلى الإطلاق</span>
+              <span class="cat-names">كار كيف · محمصة هارت · رَذاذ · أورا ستور · الورقة الذهبية · دورك</span>
+            </span>
+            <span class="cat-side" aria-hidden="true"><b>06</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="cat" href="#content" style="--h:#F27FA0">
+            <span class="cat-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l4.2-1 10.3-10.3a2.1 2.1 0 0 0-3-3L5.2 16 4 20z"/><path d="M13.5 7.5l3 3"/></svg></span>
+            <span class="cat-body">
+              <span class="cat-title">إدارة محتوى وتصميم</span>
+              <span class="cat-sub">حسابات أدير محتواها، وتصاميم لمنتجات عملائي</span>
+              <span class="cat-names">شاورما تورتيلا · الورقة الذهبية · محمصة هارت</span>
+            </span>
+            <span class="cat-side" aria-hidden="true"><b>03</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="cat" href="#apps" style="--h:#6CCBC4">
+            <span class="cat-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></span>
+            <span class="cat-body">
+              <span class="cat-title">تطبيقات وأنظمة</span>
+              <span class="cat-sub">أدوات وأنظمة تشغيل للأعمال</span>
+              <span class="cat-names">مساعد فنادق المدينة · دوّار · كاشير المقهى</span>
+            </span>
+            <span class="cat-side" aria-hidden="true"><b>03</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+  <section class="catpage wrap" id="view-web" aria-labelledby="h-web" style="--h:#ECB04B" hidden>
+    <div class="catpage-inner">
+      <a class="goback" href="#works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg>رجوع لأعمالي</a>
+      <div class="cp-head">
+        <div>
+          <p class="cp-crumb">SUD8 · WORKS</p>
+          <h2 id="h-web" tabindex="-1">مواقع إلكترونية</h2>
+          <p>متاجر ومنصات بنيتها من الفكرة إلى الإطلاق</p>
+        </div>
+        <span class="count"><b>06</b> PROJECTS</span>
+      </div>
       <ul class="grid">
         <li class="work" style="--h:#F08A4B">
           <span class="glyph"><svg viewBox="0 0 24 24"><path d="M3.5 13l1.8-4.6A2 2 0 0 1 7.2 7h9.6a2 2 0 0 1 1.9 1.4l1.8 4.6v4a1 1 0 0 1-1 1h-1M3.5 13v4a1 1 0 0 0 1 1h1M3.5 13h17M9 18h6"/><circle cx="7.2" cy="18" r="1.7"/><circle cx="16.8" cy="18" r="1.7"/></svg></span>
@@ -297,7 +372,18 @@ a{color:inherit;text-decoration:none}
             </div>
           </div>
         </li>
-
+        <li class="work" style="--h:#E0707C">
+          <span class="glyph"><svg viewBox="0 0 24 24"><path d="M12 3.5c4.4 0 7 3.6 7 8.5s-2.6 8.5-7 8.5-7-3.6-7-8.5 2.6-8.5 7-8.5z"/><path d="M12 3.8c-1.8 2.6-1.8 5 0 8.2s1.8 5.6 0 8.2"/></svg></span>
+          <div>
+            <div class="w-head"><h3>محمصة هارت</h3><span class="w-latin">HEART ROASTERY</span><span class="live">مباشر</span></div>
+            <p class="w-cat">متجر محاصيل قهوة مختصة</p>
+            <p class="w-desc">متجر لبيع محاصيل القهوة على زد. صمّمت صور المنتجات، وكتبت CSS خاص لواجهة المتجر.</p>
+            <div class="w-foot">
+              <ul class="stack"><li>Zid</li><li>CSS</li><li>تصميم صور</li></ul>
+              <a class="visit" href="https://hearts.zid.store/" target="_blank" rel="noopener">hearts.zid.store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+        </li>
         <li class="work" style="--h:#5FB6DE">
           <span class="glyph"><svg viewBox="0 0 24 24"><path d="M12 3c3.6 4.3 6 7.5 6 10.6a6 6 0 0 1-12 0C6 10.5 8.4 7.3 12 3z"/><path d="M14.8 13.5a2.9 2.9 0 0 1-2.4 2.9"/></svg></span>
           <div>
@@ -307,27 +393,6 @@ a{color:inherit;text-decoration:none}
             <div class="w-foot"><ul class="stack"><li>Next.js</li><li>Framer Motion</li></ul></div>
           </div>
         </li>
-
-        <li class="work" style="--h:#A487F2">
-          <span class="glyph"><svg viewBox="0 0 24 24"><path d="M7.2 8.5h9.6a4 4 0 0 1 3.9 4.9l-.8 3.4a2 2 0 0 1-3.4.9l-2.1-2.2H9.6l-2.1 2.2a2 2 0 0 1-3.4-.9l-.8-3.4a4 4 0 0 1 3.9-4.9z"/><path d="M8.2 11.2v3M6.7 12.7h3"/><circle cx="15.6" cy="11.8" r=".6"/><circle cx="17" cy="13.6" r=".6"/></svg></span>
-          <div>
-            <div class="w-head"><h3>دورك</h3><span class="w-latin">DORAK</span></div>
-            <p class="w-cat">منصة ألعاب جماعية عربية</p>
-            <p class="w-desc">محرك ألعاب جماعية خاص، وعليه ثلاث ألعاب جاهزة: جاسوس، حروف، وردة فعل.</p>
-            <div class="w-foot"><ul class="stack"><li>Multiplayer</li><li>TypeScript</li><li>106 tests</li></ul></div>
-          </div>
-        </li>
-
-        <li class="work" style="--h:#4FC48F">
-          <span class="glyph"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L4 20z"/><path d="M12 7.6l.9 1.9 1.9.9-1.9.9-.9 1.9-.9-1.9-1.9-.9 1.9-.9z"/></svg></span>
-          <div>
-            <div class="w-head"><h3>مساعد فنادق المدينة</h3><span class="w-latin">HOTEL AI</span></div>
-            <p class="w-cat">مساعد ذكاء اصطناعي على واتساب</p>
-            <p class="w-desc">يرد على استفسارات النزلاء بأكثر من لغة، ومعه لوحة تشغيل وموقع توثيق بالعربي والإنجليزي.</p>
-            <div class="w-foot"><ul class="stack"><li>AI</li><li>WhatsApp</li><li>RTL / LTR</li></ul></div>
-          </div>
-        </li>
-
         <li class="work" style="--h:#F27FA0">
           <span class="glyph"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.1 12H6.1z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>
           <div>
@@ -340,7 +405,6 @@ a{color:inherit;text-decoration:none}
             </div>
           </div>
         </li>
-
         <li class="work" style="--h:#DDB75C">
           <span class="glyph"><svg viewBox="0 0 24 24"><path d="M7 9V3.5h10V9M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 14h10v6.5H7z"/></svg></span>
           <div>
@@ -350,7 +414,100 @@ a{color:inherit;text-decoration:none}
             <div class="w-foot"><ul class="stack"><li>E‑commerce</li></ul></div>
           </div>
         </li>
+        <li class="work" style="--h:#A487F2">
+          <span class="glyph"><svg viewBox="0 0 24 24"><path d="M7.2 8.5h9.6a4 4 0 0 1 3.9 4.9l-.8 3.4a2 2 0 0 1-3.4.9l-2.1-2.2H9.6l-2.1 2.2a2 2 0 0 1-3.4-.9l-.8-3.4a4 4 0 0 1 3.9-4.9z"/><path d="M8.2 11.2v3M6.7 12.7h3"/><circle cx="15.6" cy="11.8" r=".6"/><circle cx="17" cy="13.6" r=".6"/></svg></span>
+          <div>
+            <div class="w-head"><h3>دورك</h3><span class="w-latin">DORAK</span></div>
+            <p class="w-cat">منصة ألعاب جماعية عربية</p>
+            <p class="w-desc">محرك ألعاب جماعية خاص، وعليه ثلاث ألعاب جاهزة: جاسوس، حروف، وردة فعل.</p>
+            <div class="w-foot"><ul class="stack"><li>Multiplayer</li><li>TypeScript</li><li>106 tests</li></ul></div>
+          </div>
+        </li>
+      </ul>
+      <div class="cta">
+        <p>تبي شغل مثل هذا؟<span>راسلني وأرد عليك بنفس اليوم</span></p>
+        <a href="https://wa.me/966532212529" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1.4-4.4a8.5 8.5 0 1 1 15.6-4.5z"/><path d="M9 9.5c.3 2.6 2.3 4.7 5 5"/></svg>راسلني على واتساب</a>
+      </div>
+    </div>
+  </section>
 
+  <section class="catpage wrap" id="view-content" aria-labelledby="h-content" style="--h:#F27FA0" hidden>
+    <div class="catpage-inner">
+      <a class="goback" href="#works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg>رجوع لأعمالي</a>
+      <div class="cp-head">
+        <div>
+          <p class="cp-crumb">SUD8 · WORKS</p>
+          <h2 id="h-content" tabindex="-1">إدارة محتوى وتصميم</h2>
+          <p>حسابات أدير محتواها، وتصاميم لمنتجات عملائي</p>
+        </div>
+        <span class="count"><b>03</b> WORKS</span>
+      </div>
+      <ul class="grid">
+        <li class="work" style="--h:#E2775B">
+          <span class="glyph"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.5 9.6v4.8l4-2.4z"/></svg></span>
+          <div>
+            <div class="w-head"><h3>شاورما تورتيلا</h3><span class="w-latin">TORTILLA SHAWARMA</span></div>
+            <p class="w-cat">إدارة محتوى تيك توك</p>
+            <p class="w-desc">أتولّى صناعة المحتوى وإدارة الحساب على تيك توك.</p>
+            <div class="w-foot">
+              <ul class="stack"><li>TikTok</li><li>صناعة محتوى</li></ul>
+              <a class="visit" href="https://www.tiktok.com/@tortillashawrma" target="_blank" rel="noopener">@tortillashawrma<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+        </li>
+        <li class="work" style="--h:#DDB75C">
+          <span class="glyph"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.5 9.6v4.8l4-2.4z"/></svg></span>
+          <div>
+            <div class="w-head"><h3>الورقة الذهبية</h3><span class="w-latin">GOLDEN PAPER</span></div>
+            <p class="w-cat">إدارة محتوى تيك توك</p>
+            <p class="w-desc">أتولّى صناعة المحتوى وإدارة الحساب على تيك توك.</p>
+            <div class="w-foot">
+              <ul class="stack"><li>TikTok</li><li>صناعة محتوى</li></ul>
+              <a class="visit" href="https://www.tiktok.com/@gp1.sa" target="_blank" rel="noopener">@gp1.sa<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+        </li>
+        <li class="work" style="--h:#E0707C">
+          <span class="glyph"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg></span>
+          <div>
+            <div class="w-head"><h3>محمصة هارت</h3><span class="w-latin">HEART ROASTERY</span></div>
+            <p class="w-cat">تصميم صور المنتجات</p>
+            <p class="w-desc">صور منتجات بهوية المحمصة لكل محصول في المتجر.</p>
+            <div class="w-foot">
+              <ul class="stack"><li>تصميم</li><li>هوية بصرية</li></ul>
+              <a class="visit" href="https://hearts.zid.store/" target="_blank" rel="noopener">hearts.zid.store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="cta">
+        <p>تبي شغل مثل هذا؟<span>راسلني وأرد عليك بنفس اليوم</span></p>
+        <a href="https://wa.me/966532212529" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1.4-4.4a8.5 8.5 0 1 1 15.6-4.5z"/><path d="M9 9.5c.3 2.6 2.3 4.7 5 5"/></svg>راسلني على واتساب</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="catpage wrap" id="view-apps" aria-labelledby="h-apps" style="--h:#6CCBC4" hidden>
+    <div class="catpage-inner">
+      <a class="goback" href="#works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg>رجوع لأعمالي</a>
+      <div class="cp-head">
+        <div>
+          <p class="cp-crumb">SUD8 · WORKS</p>
+          <h2 id="h-apps" tabindex="-1">تطبيقات وأنظمة</h2>
+          <p>أدوات وأنظمة تشغيل للأعمال</p>
+        </div>
+        <span class="count"><b>03</b> PROJECTS</span>
+      </div>
+      <ul class="grid">
+        <li class="work" style="--h:#4FC48F">
+          <span class="glyph"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L4 20z"/><path d="M12 7.6l.9 1.9 1.9.9-1.9.9-.9 1.9-.9-1.9-1.9-.9 1.9-.9z"/></svg></span>
+          <div>
+            <div class="w-head"><h3>مساعد فنادق المدينة</h3><span class="w-latin">HOTEL AI</span></div>
+            <p class="w-cat">مساعد ذكاء اصطناعي على واتساب</p>
+            <p class="w-desc">يرد على استفسارات النزلاء بأكثر من لغة، ومعه لوحة تشغيل وموقع توثيق بالعربي والإنجليزي.</p>
+            <div class="w-foot"><ul class="stack"><li>AI</li><li>WhatsApp</li><li>RTL / LTR</li></ul></div>
+          </div>
+        </li>
         <li class="work" style="--h:#6CCBC4">
           <span class="glyph"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-13.7 5.6M4 12a8 8 0 0 1 13.7-5.6"/><path d="M17.7 3.4v3h-3M6.3 20.6v-3h3"/></svg></span>
           <div>
@@ -360,7 +517,6 @@ a{color:inherit;text-decoration:none}
             <div class="w-foot"><ul class="stack"><li>macOS</li></ul></div>
           </div>
         </li>
-
         <li class="work" style="--h:#C9A27A">
           <span class="glyph"><svg viewBox="0 0 24 24"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16M8.5 3.5v2.5M11.5 3.5v2.5M14.5 3.5v2.5"/></svg></span>
           <div>
@@ -371,31 +527,9 @@ a{color:inherit;text-decoration:none}
           </div>
         </li>
       </ul>
-
-      <div class="managed">
-        <div class="managed-head">
-          <div>
-            <h3>أدير محتواها على تيك توك</h3>
-            <p>حسابات أتولّى صناعة محتواها وإدارتها</p>
-          </div>
-          <span class="count"><b>02</b> ACCOUNTS</span>
-        </div>
-        <ul class="managed-list">
-          <li>
-            <a class="acct" style="--h:#E2775B" href="https://www.tiktok.com/@tortillashawrma" target="_blank" rel="noopener">
-              <span class="acct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.5 9.6v4.8l4-2.4z"/></svg></span>
-              <span class="acct-text"><b>شاورما تورتيلا</b><em dir="ltr">@tortillashawrma</em></span>
-              <span class="acct-go">تيك توك<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="acct" style="--h:#DDB75C" href="https://www.tiktok.com/@gp1.sa" target="_blank" rel="noopener">
-              <span class="acct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.5 9.6v4.8l4-2.4z"/></svg></span>
-              <span class="acct-text"><b>الورقة الذهبية</b><em dir="ltr">@gp1.sa</em></span>
-              <span class="acct-go">تيك توك<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
-            </a>
-          </li>
-        </ul>
+      <div class="cta">
+        <p>تبي شغل مثل هذا؟<span>راسلني وأرد عليك بنفس اليوم</span></p>
+        <a href="https://wa.me/966532212529" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1.4-4.4a8.5 8.5 0 1 1 15.6-4.5z"/><path d="M9 9.5c.3 2.6 2.3 4.7 5 5"/></svg>راسلني على واتساب</a>
       </div>
     </div>
   </section>
@@ -638,12 +772,32 @@ a{color:inherit;text-decoration:none}
   let lastWidth = 0;
   function onResize() {
     const w = stage.getBoundingClientRect().width;
+    if (w < 60) return;
     if (Math.abs(w - lastWidth) < 1) return;
     lastWidth = w; layout();
   }
   addEventListener('resize', onResize);
   onResize();
   if (!reduce) { const b = sim.pts[sim.B]; b.px = b.x + 5.5; }
+  /* ---- works categories: #web / #content / #apps open their own page ---- */
+  const VIEWS = ['web', 'content', 'apps'];
+  const home = document.getElementById('home');
+  function route() {
+    const h = (location.hash || '').slice(1);
+    const cat = VIEWS.includes(h) ? h : null;
+    home.hidden = !!cat;
+    VIEWS.forEach(v => { document.getElementById('view-' + v).hidden = v !== cat; });
+    if (cat) {
+      window.scrollTo(0, 0);
+      const t = document.querySelector('#view-' + cat + ' h2');
+      if (t) t.focus({ preventScroll: true });
+    } else {
+      onResize(); wake();
+      if (h === 'works') document.getElementById('works').scrollIntoView();
+    }
+  }
+  addEventListener('hashchange', route);
+  route();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { charW = 0; ctx.font = '600 8.5px "IBM Plex Mono", ui-monospace, monospace'; charW = ctx.measureText('M').width + 0.6; wake(); });
 })();
 </script>
