@@ -202,6 +202,31 @@ a{color:inherit;text-decoration:none}
 .cta a:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
 .cta a svg{width:19px;height:19px}
 
+/* ---------- Client logos marquee ---------- */
+.clients{padding-block:44px 8px;overflow:hidden}
+.clients-head{max-width:1000px;margin:0 auto 18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.clients-head h2{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(26px,6vw,34px)}
+.clients-head p{margin:8px 0 0;color:var(--muted);font-size:14px}
+.marquee{position:relative;direction:ltr;display:grid;gap:12px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;width:max-content;gap:12px;list-style:none;margin:0;padding:0;animation:slide 32s linear infinite}
+.track.rev{animation-direction:reverse;animation-duration:38s}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.logo{direction:rtl;display:flex;align-items:center;gap:12px;height:80px;padding:0 22px 0 16px;border-radius:20px;background:var(--surface);border:1px solid var(--line);white-space:nowrap}
+.logo-mark{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;overflow:hidden;color:var(--h);
+  background:var(--ink);border:1px solid color-mix(in srgb,var(--h) 35%,transparent)}
+.logo-mark img{width:84%;height:84%;object-fit:contain}
+.logo-mark.light{background:var(--card)}
+.logo-mark svg{width:70%;height:70%}
+.logo-mark i{display:none;font-style:normal;font-family:var(--font-display);font-weight:800;font-size:21px}
+.logo-mark.nologo{background:color-mix(in srgb,var(--h) 14%,transparent)}
+.logo-mark.nologo i{display:block}
+.logo-txt{display:grid;gap:4px}
+.logo-txt b{font-family:var(--font-display);font-weight:700;font-size:17px}
+.logo-txt em{font:500 9.5px/1 var(--font-mono);font-style:normal;letter-spacing:.18em;color:var(--muted);direction:ltr;text-align:right}
+@media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}.track[aria-hidden]{display:none}.marquee{mask-image:none;-webkit-mask-image:none}}
+
 /* ---------- Footer ---------- */
 .foot{padding-block:28px 40px}
 .foot-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
@@ -344,6 +369,36 @@ a{color:inherit;text-decoration:none}
           </a>
         </li>
       </ul>
+    </div>
+  </section>
+  <section class="clients" aria-labelledby="clients-title">
+    <div class="clients-head">
+      <h2 id="clients-title">عملاء وشركاء</h2>
+      <p>جهات اشتغلت معها في المواقع والمحتوى</p>
+    </div>
+    <div class="marquee">
+      <ul class="track"><li class="logo" style="--h:#F08A4B"><span class="logo-mark dark"><img src="logos/carcave.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>ك</i></span><span class="logo-txt"><b>كار كيف</b><em>CAR CAVE</em></span></li><li class="logo" style="--h:#E0707C"><span class="logo-mark light"><img src="https://media.zid.store/cdn-cgi/image/h=160,q=90,f=auto/https://media.zid.store/a31318f4-6fd6-4b37-9898-e953c700d095/6da05baa-5d65-4b3b-88bd-c837e8c8ffcd.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>م</i></span><span class="logo-txt"><b>محمصة هارت</b><em>HEART ROASTERY</em></span></li><li class="logo" style="--h:#F27FA0"><span class="logo-mark nologo"><i>أ</i></span><span class="logo-txt"><b>أورا ستور</b><em>AURA STORE</em></span></li><li class="logo" style="--h:#DDB75C"><span class="logo-mark svg"><svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  
+  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+    d="M29 16 H71 V56 L55 74 H25 Z
+       M40 30 H60 L64 34 V44 H53 V60 H40 Z"/>
+</svg></span><span class="logo-txt"><b>الورقة الذهبية</b><em>GOLDEN PAPER</em></span></li><li class="logo" style="--h:#E2775B"><span class="logo-mark nologo"><i>ش</i></span><span class="logo-txt"><b>شاورما تورتيلا</b><em>TORTILLA SHAWARMA</em></span></li><li class="logo" style="--h:#5FB6DE"><span class="logo-mark nologo"><i>ر</i></span><span class="logo-txt"><b>رَذاذ</b><em>RADHATH</em></span></li><li class="logo" style="--h:#A487F2"><span class="logo-mark nologo"><i>د</i></span><span class="logo-txt"><b>دورك</b><em>DORAK</em></span></li><li class="logo" style="--h:#F08A4B"><span class="logo-mark dark"><img src="logos/carcave.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>ك</i></span><span class="logo-txt"><b>كار كيف</b><em>CAR CAVE</em></span></li><li class="logo" style="--h:#E0707C"><span class="logo-mark light"><img src="https://media.zid.store/cdn-cgi/image/h=160,q=90,f=auto/https://media.zid.store/a31318f4-6fd6-4b37-9898-e953c700d095/6da05baa-5d65-4b3b-88bd-c837e8c8ffcd.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>م</i></span><span class="logo-txt"><b>محمصة هارت</b><em>HEART ROASTERY</em></span></li><li class="logo" style="--h:#F27FA0"><span class="logo-mark nologo"><i>أ</i></span><span class="logo-txt"><b>أورا ستور</b><em>AURA STORE</em></span></li><li class="logo" style="--h:#DDB75C"><span class="logo-mark svg"><svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  
+  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+    d="M29 16 H71 V56 L55 74 H25 Z
+       M40 30 H60 L64 34 V44 H53 V60 H40 Z"/>
+</svg></span><span class="logo-txt"><b>الورقة الذهبية</b><em>GOLDEN PAPER</em></span></li><li class="logo" style="--h:#E2775B"><span class="logo-mark nologo"><i>ش</i></span><span class="logo-txt"><b>شاورما تورتيلا</b><em>TORTILLA SHAWARMA</em></span></li><li class="logo" style="--h:#5FB6DE"><span class="logo-mark nologo"><i>ر</i></span><span class="logo-txt"><b>رَذاذ</b><em>RADHATH</em></span></li><li class="logo" style="--h:#A487F2"><span class="logo-mark nologo"><i>د</i></span><span class="logo-txt"><b>دورك</b><em>DORAK</em></span></li></ul>
+      <ul class="track rev" aria-hidden="true"><li class="logo" style="--h:#A487F2"><span class="logo-mark nologo"><i>د</i></span><span class="logo-txt"><b>دورك</b><em>DORAK</em></span></li><li class="logo" style="--h:#5FB6DE"><span class="logo-mark nologo"><i>ر</i></span><span class="logo-txt"><b>رَذاذ</b><em>RADHATH</em></span></li><li class="logo" style="--h:#E2775B"><span class="logo-mark nologo"><i>ش</i></span><span class="logo-txt"><b>شاورما تورتيلا</b><em>TORTILLA SHAWARMA</em></span></li><li class="logo" style="--h:#DDB75C"><span class="logo-mark svg"><svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  
+  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+    d="M29 16 H71 V56 L55 74 H25 Z
+       M40 30 H60 L64 34 V44 H53 V60 H40 Z"/>
+</svg></span><span class="logo-txt"><b>الورقة الذهبية</b><em>GOLDEN PAPER</em></span></li><li class="logo" style="--h:#F27FA0"><span class="logo-mark nologo"><i>أ</i></span><span class="logo-txt"><b>أورا ستور</b><em>AURA STORE</em></span></li><li class="logo" style="--h:#E0707C"><span class="logo-mark light"><img src="https://media.zid.store/cdn-cgi/image/h=160,q=90,f=auto/https://media.zid.store/a31318f4-6fd6-4b37-9898-e953c700d095/6da05baa-5d65-4b3b-88bd-c837e8c8ffcd.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>م</i></span><span class="logo-txt"><b>محمصة هارت</b><em>HEART ROASTERY</em></span></li><li class="logo" style="--h:#F08A4B"><span class="logo-mark dark"><img src="logos/carcave.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>ك</i></span><span class="logo-txt"><b>كار كيف</b><em>CAR CAVE</em></span></li><li class="logo" style="--h:#A487F2"><span class="logo-mark nologo"><i>د</i></span><span class="logo-txt"><b>دورك</b><em>DORAK</em></span></li><li class="logo" style="--h:#5FB6DE"><span class="logo-mark nologo"><i>ر</i></span><span class="logo-txt"><b>رَذاذ</b><em>RADHATH</em></span></li><li class="logo" style="--h:#E2775B"><span class="logo-mark nologo"><i>ش</i></span><span class="logo-txt"><b>شاورما تورتيلا</b><em>TORTILLA SHAWARMA</em></span></li><li class="logo" style="--h:#DDB75C"><span class="logo-mark svg"><svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  
+  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+    d="M29 16 H71 V56 L55 74 H25 Z
+       M40 30 H60 L64 34 V44 H53 V60 H40 Z"/>
+</svg></span><span class="logo-txt"><b>الورقة الذهبية</b><em>GOLDEN PAPER</em></span></li><li class="logo" style="--h:#F27FA0"><span class="logo-mark nologo"><i>أ</i></span><span class="logo-txt"><b>أورا ستور</b><em>AURA STORE</em></span></li><li class="logo" style="--h:#E0707C"><span class="logo-mark light"><img src="https://media.zid.store/cdn-cgi/image/h=160,q=90,f=auto/https://media.zid.store/a31318f4-6fd6-4b37-9898-e953c700d095/6da05baa-5d65-4b3b-88bd-c837e8c8ffcd.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>م</i></span><span class="logo-txt"><b>محمصة هارت</b><em>HEART ROASTERY</em></span></li><li class="logo" style="--h:#F08A4B"><span class="logo-mark dark"><img src="logos/carcave.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()"><i>ك</i></span><span class="logo-txt"><b>كار كيف</b><em>CAR CAVE</em></span></li></ul>
     </div>
   </section>
 </div>
