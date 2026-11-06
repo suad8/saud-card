@@ -159,6 +159,25 @@ a{color:inherit;text-decoration:none}
 .visit{display:inline-flex;align-items:center;gap:6px;font:500 12.5px/1 var(--font-mono);color:var(--h);direction:ltr;border-radius:6px}
 .visit svg{width:13px;height:13px}
 
+/* ---------- Managed TikTok accounts ---------- */
+.managed{margin-top:40px}
+.managed-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.managed-head h3{margin:0;font-family:var(--font-display);font-weight:600;font-size:clamp(22px,5vw,27px);line-height:1.2;text-wrap:balance}
+.managed-head p{margin:6px 0 0;color:var(--muted);font-size:14px;line-height:1.6}
+.managed-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.acct{display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;
+  background:var(--surface);border:1px solid var(--line);transition:border-color .25s,background .25s}
+.acct:hover{border-color:color-mix(in srgb,var(--h) 45%,var(--line));background:var(--surface-2)}
+.acct:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
+.acct-ico{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;color:var(--h);
+  background:color-mix(in srgb,var(--h) 14%,transparent);border:1px solid color-mix(in srgb,var(--h) 28%,transparent)}
+.acct-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.acct-text{display:grid;gap:5px;min-width:0}
+.acct-text b{font-family:var(--font-display);font-weight:600;font-size:18px;line-height:1.2}
+.acct-text em{font:500 12.5px/1.2 var(--font-mono);font-style:normal;color:var(--muted);text-align:right;overflow-wrap:anywhere}
+.acct-go{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--h)}
+.acct-go svg{width:13px;height:13px}
+
 /* ---------- Footer ---------- */
 .foot{padding-block:28px 40px}
 .foot-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
@@ -167,7 +186,7 @@ a{color:inherit;text-decoration:none}
 
 @media (prefers-reduced-motion:reduce){
   .nfc path,.live::before{animation:none}
-  .wa,.add,.ig,.work{transition:none}
+  .wa,.add,.ig,.work,.acct{transition:none}
 }
 </style>
 </head>
@@ -352,6 +371,32 @@ a{color:inherit;text-decoration:none}
           </div>
         </li>
       </ul>
+
+      <div class="managed">
+        <div class="managed-head">
+          <div>
+            <h3>أدير محتواها على تيك توك</h3>
+            <p>حسابات أتولّى صناعة محتواها وإدارتها</p>
+          </div>
+          <span class="count"><b>02</b> ACCOUNTS</span>
+        </div>
+        <ul class="managed-list">
+          <li>
+            <a class="acct" style="--h:#E2775B" href="https://www.tiktok.com/@tortillashawrma" target="_blank" rel="noopener">
+              <span class="acct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.5 9.6v4.8l4-2.4z"/></svg></span>
+              <span class="acct-text"><b>شاورما تورتيلا</b><em dir="ltr">@tortillashawrma</em></span>
+              <span class="acct-go">تيك توك<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+          </li>
+          <li>
+            <a class="acct" style="--h:#DDB75C" href="https://www.tiktok.com/@gp1.sa" target="_blank" rel="noopener">
+              <span class="acct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><path d="M10.5 9.6v4.8l4-2.4z"/></svg></span>
+              <span class="acct-text"><b>الورقة الذهبية</b><em dir="ltr">@gp1.sa</em></span>
+              <span class="acct-go">تيك توك<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
